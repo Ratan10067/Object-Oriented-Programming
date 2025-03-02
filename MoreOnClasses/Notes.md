@@ -56,5 +56,39 @@
 
 # Class template with member functions
 
-    ->
-    
+    -> A template in C++ is a blueprint for creating generic classes or functions. It allows writing reusable and type-independent code, enabling the same function or class to work with different data types without rewriting the code.
+
+    -> Types of Templates in C++
+        1. Function Templates
+            -> A function template allows writing a single function that can handle multiple data types.
+        2. Class Templates
+            -> A class template allows creating a class that can operate on any data type.
+
+# Points
+
+    -> Note that when we define a member function inside the class template definition, we don’t need to provide a template parameter declaration for the member function. Such member functions implicitly use the class template parameter declaration.
+    ->  Second, we don’t need deduction guides for CTAD to work with non-aggregate classes. A matching constructor provides the compiler with the information it needs to deduce the template parameters from the initializers.
+    -> Defining the member function outside the class with a forward declaration in it.
+
+# Static member variables
+
+    -> They are created at the start of the program, and destroyed at the end of the program. Such variables keep their values even if they go out of scope.
+    -> Points
+        Member variables of a class can be made static by using the static keyword.
+        Unlike normal member variables, static member variables are shared by all objects of the class.
+
+# Friend non-member functions
+
+    -> A friend is a class or function (member or non-member) that has been granted full access to the private and protected members of another class. In this way, a class can selectively give other classes or functions full access to their members without impacting anything else.
+
+    -> Unlike functions, classes have no return types or parameters, so class forward declarations are always simply class ClassName (unless they are class templates).
+
+    -> Insights:
+        Even though Display is a friend of Storage, Display has no access to the *this pointer of Storage objects (because *this is actually a function parameter).
+        Friendship is not reciprocal. Just because Display is a friend of Storage does not mean Storage is also a friend of Display. If you want two classes to be friends of each other, both must declare the other as a friend.
+        Class friendship is also not transitive. If class A is a friend of B, and B is a friend of C, that does not mean A is a friend of C.
+        Friendship is not inherited. If class A makes B a friend, classes derived from B are not friends of A.
+
+# Friend member functions
+
+    -> This is done similarly to making a non-member function a friend, except the name of the member function is used instead.
